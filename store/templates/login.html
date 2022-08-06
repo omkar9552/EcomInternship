@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="p-3 m-3">
+        <div class="col-lg-5 rounded mx-auto border pt-4">
+            <div class="text-center col">
+            
+                <img
+                src="https://th.bing.com/th/id/R.628b407d8cd62a63d8152651712492e5?rik=BbAQykX8TvHunw&riu=http%3a%2f%2falonzosli.com%2fwp-content%2fuploads%2f2015%2f07%2f356143704_640.jpg&ehk=72JAXnYmQipqKVPTK%2b4tz8mriyZ7mOPnOV3%2bqGMxNvI%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1 " alt=""
+                class="" style="height: 150px;">
+            <hr>
+            </div>
+            <h3 class="alert alert-light rounded-pill" style="text-align:center" >Login</h3>
+            <form action="/login" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control-sm form-control">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control form-control-sm" >
+                </div>
+
+                <hr>
+                <button type="submit" class="btn btn-outline-info col-lg-12">Login</button>
+
+
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
